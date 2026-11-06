@@ -1,0 +1,1 @@
+-- Se completa cuando veamos las columnas reales.

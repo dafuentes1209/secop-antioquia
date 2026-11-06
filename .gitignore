@@ -1,0 +1,21 @@
+# Entorno
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+
+# Datos (se regeneran con src/descargar_datos.py)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.db
+*.sqlite
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
