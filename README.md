@@ -24,4 +24,4 @@ python src/ejecutar_sql.py sql/02_analisis.sql
 SECOP II - Contratos Electrónicos, Colombia Compra Eficiente (datos.gov.co, dataset jbjy-vk9h).
 
 ## Hallazgos
-(pendiente)
+En la muestra analizada (las primeras 50.000 filas por id), 10 de los 901 contratos de la Gobernación de Antioquia (cerca del 1 %) concentran el 57 % del valor contratado (1,29 de 2,26 billones de pesos). El mayor, de unos 712.569 millones de pesos, corresponde a la construcción de las vías de acceso al proyecto Túnel Guillermo Gaviria Echeverri (Túnel del Toyo). Los demás se reparten entre obras viales y convenios o contratos de administración de recursos, en los que la Gobernación transfiere dinero a otras entidades para que lo ejecuten, como el convenio con el IDEA o la modernización del alumbrado público.

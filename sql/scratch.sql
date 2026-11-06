@@ -1,5 +1,12 @@
--- Filas con el carácter de reemplazo en texto
-SELECT COUNT(*) AS filas_con_caracter_roto
+-- 3.0 NIT(s) de la Gobernación
+SELECT nit_entidad, entidad, COUNT(*) AS contratos
 FROM contratos
-WHERE modalidad LIKE '�' || char(65533) || '�'
-   OR objeto_del_contrato LIKE '�' || char(65533) || '�';
+WHERE entidad LIKE 'DEPARTAMENTO DE ANTIOQUIA%'
+GROUP BY nit_entidad, entidad;
+
+-- 3.1 Los 10 contratos más grandes de la Gobernación
+SELECT id_contrato, nit_entidad, entidad, SUBSTR(objeto_del_contrato, 1, 120) AS objeto
+FROM contratos
+WHERE nit_entidad = '890900286'
+ORDER BY valor DESC
+LIMIT 10;
