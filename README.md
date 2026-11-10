@@ -3,12 +3,14 @@
 Análisis en SQL de contratos públicos de Antioquia (SECOP II, datos abiertos de Colombia).
 
 ## Preguntas
-1. Top 10 entidades por valor contratado
-2. % de contratación directa por entidad
-3. Principales contratistas por entidad
-4. Valor mensual y acumulado
-5. Contratos atípicos frente al promedio de su entidad
-6. Calidad de datos: nulos, duplicados, valores raros
+1. Top 10 entidades por valor contratado (`02_analisis.sql`, Q1)
+2. % de contratación directa por entidad (`02_analisis.sql`, Q2)
+3. Principales contratistas por entidad (`02_analisis.sql`, Q3)
+4. Valor mensual y acumulado (`02_analisis.sql`, Q4)
+5. Contratos atípicos frente al promedio de su entidad (`02_analisis.sql`, Q5)
+6. Calidad de datos: nulos, duplicados, valores raros (`01_limpieza.sql`)
+
+Además, `03_atipicos.sql` profundiza en los contratos atípicos: los más grandes de la Gobernación, las entidades con megacontratos y los municipios por cuartil de valor contratado.
 
 ## Cómo reproducirlo
 ```bash
@@ -17,7 +19,9 @@ source .venv/Scripts/activate   # Linux/Mac: source .venv/bin/activate
 pip install -r requirements.txt
 python src/descargar_datos.py
 python src/cargar_db.py
+python src/ejecutar_sql.py sql/01_limpieza.sql
 python src/ejecutar_sql.py sql/02_analisis.sql
+python src/ejecutar_sql.py sql/03_atipicos.sql
 ```
 
 ## Fuente
@@ -25,3 +29,10 @@ SECOP II - Contratos Electrónicos, Colombia Compra Eficiente (datos.gov.co, dat
 
 ## Hallazgos
 En la muestra analizada (las primeras 50.000 filas por id), 10 de los 901 contratos de la Gobernación de Antioquia (cerca del 1 %) concentran el 57 % del valor contratado (1,29 de 2,26 billones de pesos). El mayor, de unos 712.569 millones de pesos, corresponde a la construcción de las vías de acceso al proyecto Túnel Guillermo Gaviria Echeverri (Túnel del Toyo). Los demás se reparten entre obras viales y convenios o contratos de administración de recursos, en los que la Gobernación transfiere dinero a otras entidades para que lo ejecuten, como el convenio con el IDEA o la modernización del alumbrado público.
+
+Entre las 104 alcaldías de la muestra, el 25 % que más contrata (26 municipios) concentra el 86 % del valor. Sabaneta sola suma cerca del 30 %, por un único contrato extremo.
+
+## Limitaciones
+- La muestra son las primeras 50.000 filas por id, no todo Antioquia.
+- Medellín no entra en el análisis de municipios porque aparece como Distrito Especial.
+- Dos asociaciones de municipios ("Nordeste y Magdalena Medio" y "Embalses Río Negro y Nare") pasan el filtro de alcaldías y caen en el cuartil 1.

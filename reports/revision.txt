@@ -1,8 +1,0 @@
-﻿=== Rango de valores de los 5 percentiles mßs altos ===
- percentil      desde     hasta  contratos
-         1       0.01 1237600.0        490
-         2 1237950.00 1750000.0        490
-         3 1750000.00 2197241.0        490
-         4 2197241.00 2600000.0        490
-         5 2600000.00 2990000.0        490 
-
