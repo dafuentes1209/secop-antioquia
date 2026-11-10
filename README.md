@@ -22,6 +22,7 @@ python src/cargar_db.py
 python src/ejecutar_sql.py sql/01_limpieza.sql
 python src/ejecutar_sql.py sql/02_analisis.sql
 python src/ejecutar_sql.py sql/03_atipicos.sql
+python src/exportar_csv.py   # genera data/processed/contratos.csv (para Power BI)
 ```
 
 ## Fuente
